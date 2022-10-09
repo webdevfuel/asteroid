@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ContactUsForm } from "../components/ContactUsForm";
+---
+
+<Layout title="Contact Us">
+	<div class="mx-auto max-w-screen-md mt-24">
+		<h1 class="text-4xl text-blue-700 font-bold mt-24">Contact Us</h1>
+		<p class="mt-2.5 text-gray-600">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut est
+			eget felis hendrerit pharetra. Aliquam ac dolor a est lacinia
+			vestibulum. Fusce sit amet massa sagittis, finibus massa ut, egestas
+			quam.
+		</p>
+
+		<ContactUsForm client:visible />
+	</div>
+</Layout>
