@@ -27,7 +27,7 @@ const posts = await Astro.glob<Frontmatter>("./post/*.md");
 		<img src="/hero.jpg" alt="" class="mt-4 rounded-lg shadow-lg" />
 
 		<h2 class="text-3xl text-blue-700 font-bold mt-24">Our Latest Posts</h2>
-		<div class="grid grid-cols-3 gap-4 mt-5">
+		<div class="lg:grid lg:grid-cols-3 gap-4 mt-5 space-y-5 lg:space-y-0">
 			{
 				posts
 					.sort(

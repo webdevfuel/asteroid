@@ -1,11 +1,12 @@
 ---
 import { HeaderBlogItem } from "./HeaderBlogItem";
+import { MobileHeader } from "./MobileHeader";
 ---
 
 <div class="flex items-center justify-between px-8 py-3.5">
 	<a href="/" class="text-4xl text-blue-700 font-bold">Asteroid</a>
 
-	<div class="flex items-center space-x-3.5">
+	<div class="lg:flex items-center space-x-3.5 hidden">
 		<a href="/about" class="text-gray-700 hover:text-blue-800">About</a>
 		<div>
 			<HeaderBlogItem client:visible />
@@ -14,4 +15,6 @@ import { HeaderBlogItem } from "./HeaderBlogItem";
 			>Contact Us</a
 		>
 	</div>
+
+	<MobileHeader client:visible />
 </div>
