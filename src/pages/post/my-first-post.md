@@ -2,7 +2,7 @@
 title: My First Post
 slug: my-first-post
 thumbnail: /my-first-post.jpg
-author: Web Dev Fuel
+author: emanuel-turis
 date: October 8, 2022
 layout: "../../layouts/PostLayout.astro"
 ---

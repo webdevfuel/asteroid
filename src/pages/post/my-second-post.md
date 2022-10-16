@@ -2,7 +2,7 @@
 title: My Second Post
 slug: my-second-post
 thumbnail: /my-second-post.jpg
-author: Web Dev Fuel
+author: john-doe
 date: October 20, 2022
 layout: "../../layouts/PostLayout.astro"
 ---

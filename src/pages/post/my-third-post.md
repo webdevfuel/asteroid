@@ -2,7 +2,7 @@
 title: My Third Post
 slug: my-third-post
 thumbnail: /my-third-post.jpg
-author: Web Dev Fuel
+author: emanuel-turis
 date: October 25, 2022
 layout: "../../layouts/PostLayout.astro"
 ---

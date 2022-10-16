@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import type { Author } from "../../types";
+
+export async function getStaticPaths() {
+	const authors = await Astro.glob<Author>("../../taxonomies/authors/*.md");
+
+	return authors.map((author) => {
+		return {
+			params: {
+				author: author.frontmatter.slug,
+			},
+			props: {
+				...author.frontmatter,
+				Content: author.Content,
+			},
+		};
+	});
+}
+
+const { name, avatar, Content } = Astro.props as Author;
+---
+
+<Layout title={name}>
+	<div class="mx-auto max-w-screen-md mt-24">
+		<p class="text-gray-700">About The Author</p>
+		<div class="flex items-center space-x-2.5 mt-2">
+			<img
+				src={avatar}
+				alt=""
+				class="w-10 h-10 rounded-full object-cover"
+			/>
+			<h1 class="text-4xl text-blue-700 font-bold">{name}</h1>
+		</div>
+		<div class="mt-2.5">
+			<Content />
+		</div>
+	</div>
+</Layout>

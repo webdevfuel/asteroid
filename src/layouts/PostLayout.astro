@@ -1,4 +1,5 @@
 ---
+import type { Author } from "../types";
 import Layout from "./Layout.astro";
 
 interface Props {
@@ -12,6 +13,18 @@ interface Props {
 }
 
 const { frontmatter } = Astro.props as Props;
+
+let author = {} as Author;
+
+async function getAuthor() {
+	const authors = await Astro.glob<Author>("../taxonomies/authors/*.md");
+
+	author =
+		authors.find((a) => a.frontmatter.slug === frontmatter.author)
+			?.frontmatter || ({} as Author);
+}
+
+getAuthor();
 ---
 
 <Layout title={frontmatter.title}>
@@ -23,7 +36,11 @@ const { frontmatter } = Astro.props as Props;
 		<div
 			class="flex justify-center items-center divide-x divide-gray-300 mt-5"
 		>
-			<div class="flex items-center space-x-1 px-2">
+			<a
+				class="flex items-center space-x-1 px-2 hover:text-blue-700 group"
+				target="_blank"
+				href={`/author/${author.slug}`}
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
@@ -39,8 +56,12 @@ const { frontmatter } = Astro.props as Props;
 					></path>
 				</svg>
 
-				<p class="text-sm">{frontmatter.author}</p>
-			</div>
+				<p
+					class="text-sm group-hover:underline group-hover:underline-offset-2"
+				>
+					{author.name}
+				</p>
+			</a>
 			<div class="flex items-center space-x-1 px-2">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

@@ -2,7 +2,7 @@
 title: My Forth Post
 slug: my-forth-post
 thumbnail: /my-third-post.jpg
-author: Web Dev Fuel
+author: john-doe
 date: October 30, 2022
 layout: "../../layouts/PostLayout.astro"
 ---
