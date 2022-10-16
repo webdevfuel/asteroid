@@ -1,8 +1,9 @@
 import { Dialog } from "@headlessui/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const MobileHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   return (
     <>
@@ -11,28 +12,37 @@ export const MobileHeader = () => {
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.75"
+          strokeWidth="1.75"
           stroke="currentColor"
           className="w-8 h-8 hover:text-blue-700"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           ></path>
         </svg>
       </button>
 
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
-        <Dialog.Panel className="fixed top-0 left-0 h-screen w-screen bg-blue-700 flex flex-col justify-center items-center">
-          <button onClick={() => setIsOpen(false)}>
+      <Dialog
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        initialFocus={buttonRef}
+      >
+        <Dialog.Panel className="fixed top-0 left-0 h-screen w-screen bg-blue-700 flex flex-col justify-center items-center z-50">
+          <button
+            type="button"
+            onClick={() => setIsOpen(false)}
+            className="fixed top-[18px] right-[32px] focus:ring-2 focus:ring-white focus:ring-opacity-25 focus:outline-none rounded-lg"
+            ref={buttonRef}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.75}
               stroke="currentColor"
-              className="w-8 h-8 fixed top-[18px] right-[32px] text-gray-200 hover:text-white"
+              className="w-8 h-8 text-gray-200 hover:text-white"
             >
               <path
                 strokeLinecap="round"
