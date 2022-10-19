@@ -7,7 +7,7 @@ export const HeaderBlogItem = () => {
         Blog
       </Popover.Button>
 
-      <Popover.Panel className="absolute z-10 left-1/2 -translate-x-1/2">
+      <Popover.Panel className="absolute z-10 left-1/2 -translate-x-1/2 bg-white">
         <div className="flex flex-col border border-gray-200 shadow-sm px-3.5 py-2 rounded-lg mt-2">
           <a href="/blog/bikes">Bikes</a>
           <a href="/blog/skateboards">Skateboards</a>
